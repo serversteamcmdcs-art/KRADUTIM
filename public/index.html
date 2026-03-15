@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стриминговый сервис KraDuTim</title>
+    <style>
+        /* Основные настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+        font-family: 'Roboto', sans-serif; /* Современный гротеск */
+        background-color: #1a1a1d;
+        color: white;
+        
+        /* Настройки фона */
+        background-image: url("path/to/your/image.jpg"); /* ВАШ ПУТЬ К ИЗОБРАЖЕНИЮ */
+        background-size: cover; /* Масштабируем фон на весь экран */
+        background-position: center; /* Центруем фон */
+    }
+    
+    h1, h2, h3 {
+        font-family: 'Merriweather', serif; /* Антиква */
+    }
+
+    /* Логотип и шапка */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: white; /* Белая шапка */
+        color: black; /* Чёрный цвет текста */
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-img {
+        margin-right: 10px;
+        width: 50px; /* Размер логотипа */
+        height: auto;
+    }
+
+    .logo-text {
+        font-size: 2em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #920000bd; /* Бордовый цвет */
+        font-weight: bold; /* ЖИРНЫЙ ШРИФТ ДЛЯ НАЗВАНИЯ */
+    }
+
+    .search-bar {
+        width: 30%;
+        height: 30px;
+        padding-left: 10px;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Основная область с постерами */
+    main {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .poster-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .poster {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(.2,.8,.2,1); /* Плавное увеличение */
+        max-width: 30%; /* Уменьшаем ширину постера */
+        z-index: 1;
+    }
+
+    /* Постеры становятся кликабельными */
+    .poster a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Описание фильма */
+    .film-description {
+        flex: 1;
+        max-width: 50%; /* Ограничиваем ширину описания */
+        line-height: 1.5;
+        font-size: 0.9em; /* Немного уменьшаем шрифт для лучшей читаемости */
+    }
+
+    /* Подписи под постерами */
+    .poster-title {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold; /* Выделяем жирным */
+        font-size: 1.1em;
+        font-family: 'PT Mono', monospace; /* Меняем шрифт на PT Mono */
+    }
+
+    .poster a .poster-title {
+        margin-top: 5px;
+    }
+
+    .poster-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .poster-content img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 2048px;
+        display: block;
+    }
+    
+    .poster-content .poster-title {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        font-family: 'PT Mono', monospace;
+    }
+
+    /* Футер */
+    footer {
+        padding: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Наведение эффекта */
+    .poster:hover {
+        transform: scale(1.05);
+    }
+
+    /* Эффект тени */
+    .poster::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .poster:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 1;
+    }
+
+    /* Импортируем шрифт PT Mono */
+    @import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+</style>
+</head>
+<body>
+
+<!-- Шапка сайта -->
+<div class="container">
+    <header>
+        <div class="logo">
+            <img class="logo-img" src="/movie-poster/LOGO.jpeg" alt="Логотип"> <!-- ВАШ ЛОГОТИП -->
+            <span class="logo-text">KraDuTim</span>
+        </div>
+        <input class="search-bar" type="search" placeholder="Искать фильмы...">
+    </header>
+
+<!-- Главная секция с постерами -->
+<main>
+    <!-- Колонки с фильмами -->
+    <div class="column">
+        <div class="poster-container">
+    <div class="poster">
+        <a href="1_sezon_gawaya.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/1 sezon gawaya.png" alt="Фильм 1">
+                <p class="poster-title">Жизнь пацана 1 сезон</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Режиссёр: Данил Крапивин. Ребята насмотрелись сериала "Слово пацана" и создали свою банду! Так казалось сначала, пока в других сезонах не раскрылось нечто другое...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="2_sezon_gawaya.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/MECTB.png" alt="Фильм 4">
+                <p class="poster-title">Месть</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Сериал находится в разработке...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="3_sezon_gawaya.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/black.png" alt="Фильм 7">
+                <p class="poster-title">Название фильма 7</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Это описание фильма 7. Здесь может быть краткий сюжет, информация о режиссёре, актёрах и жанре. Фильм рассказывает историю...</p></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="poster-container">
+    <div class="poster">
+        <a href="2_sezon_gawaya.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/2 sezon gawaya.png" alt="Фильм 2">
+                <p class="poster-title">Жизнь пацана 2 сезон</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Скоро будет описание...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="actors.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/black.png" alt="Фильм 5">
+                <p class="poster-title">Название фильма 5</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Это описание фильма 5. Здесь может быть краткий сюжет, информация о режиссёре, актёрах и жанре. Фильм рассказывает историю...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="actors.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/black.png" alt="Фильм 8">
+                <p class="poster-title">Название фильма 8</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Это описание фильма 8. Здесь может быть краткий сюжет, информация о режиссёре, актёрах и жанре. Фильм рассказывает историю...</p></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="poster-container">
+    <div class="poster">
+        <a href="3_sezon_gawaya.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/3 sezon gawaya.png" alt="Фильм 3">
+                <p class="poster-title">Жизнь пацана 3 мини-фильм</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Скоро будет описание...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="actors.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/black.png" alt="Фильм 6">
+                <p class="poster-title">Название фильма 6</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Это описание фильма 6. Здесь может быть краткий сюжет, информация о режиссёре, актёрах и жанре. Фильм рассказывает историю...</p></strong>
+            </div>
+        </div>
+        <div class="poster-container">
+    <div class="poster">
+        <a href="actors.html"><!-- ссылка на страницу -->
+            <div class="poster-content">
+                <img src="movie-poster/black.png" alt="Фильм 9">
+                <p class="poster-title">Название фильма 9</p>
+            </div>
+        </a>
+    </div>
+            <div class="film-description">
+                <strong><p>Это описание фильма 9. Здесь может быть краткий сюжет, информация о режиссёре, актёрах и жанре. Фильм рассказывает историю...</p></strong>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Нижний колонтитул -->
+<footer>
+    © Кадр за Кадром | Связь: <a href="mailto:info@kadrzakadrom.ru">info@kadrzakadrom.ru</a>
+</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1B1C1E;
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .actor-card {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: calc(33% - 20px);
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .actor-image {
+            width: 100%;
+            height: auto;
+        }
+        
+        .actor-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+        
+        @media (max-width: 768px) {
+            .actor-card {
+                width: 48%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .actor-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Актёры</h1>
+    
+    <!-- Карточка актера -->
+    <div class="actor-card">
+        <img src="actor1.jpg" alt="Имя актера" class="actor-image">
+        <div class="actor-name">Имя актера</div>
+    </div>
+    
+    <!-- Добавьте остальные карточки аналогично -->
+    
+    <div class="actor-card">
+        <img src="actor2.jpg" alt="Имя актера" class="actor-image">
+        <div class="actor-name">Имя актера</div>
+    </div>
+    
+    <div class="actor-card">
+        <img src="actor3.jpg" alt="Имя актера" class="actor-image">
+        <div class="actor-name">Имя актера</div>
+    </div>
+    
+    <div class="actor-card">
+        <img src="" alt="">
+        <div class="actor-name">Имя актера</div>
+    </div>
+    
+    <div class="actor-card">
+        <img src="actor5.jpg" alt="Имя актера" class="actor-image">
+        <div class="actor-name">Имя актера</div>
+    </div>
+    
+    <div class="actor-card">
+        <img src="actor6.jpg" alt="Имя актера" class="actor-image">
+        <div class="actor-name">Имя актера</div>
+    </div>
+</div>
+</body>
+</html>
